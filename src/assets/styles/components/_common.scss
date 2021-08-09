@@ -1,0 +1,65 @@
+/* Works on Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: $brand-color-2 #dadada;
+  }
+  
+  /* Works on Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: #dadada;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background-color: $brand-color-2;
+  }
+
+.b-lazy {
+    -webkit-transition: opacity 500ms ease-in-out;
+    -moz-transition: opacity 500ms ease-in-out;
+    -o-transition: opacity 500ms ease-in-out;
+    transition: opacity 500ms ease-in-out;
+    max-width: 100%;
+    opacity: 0;
+}
+
+.b-lazy.b-loaded {
+    opacity: 1;
+}
+
+.loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.linePreloader {
+    width: 150px;
+    height: 4px;
+    background: linear-gradient(to right, $brand-color-2, $brand-color-2);
+    background-color: #e3e3e3;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border-radius: 4px;
+    background-size: 20%;
+    background-repeat: repeat-y;
+    background-position: -25% 0;
+    animation: scroll 1.2s ease-in-out infinite;
+}
+
+@keyframes scroll {
+    50% {
+        background-size: 80%;
+    }
+
+    100% {
+        background-position: 125% 0;
+    }
+}

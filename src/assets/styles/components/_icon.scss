@@ -1,0 +1,143 @@
+@font-face {
+  font-family: "the-50years"; //food valley fonts
+  src:url("../fonts/icon/the-50years.eot");
+  src:url("../fonts/icon/the-50years.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/icon/the-50years.woff") format("woff"),
+    url("../fonts/icon/the-50years.ttf") format("truetype"),
+    url("../fonts/icon/the-50years.svg#the-50years") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; 
+}
+
+[data-icon]:before {
+  font-family: "the-50years" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "the-50years" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-icon-youtube-icon:before {
+  content: "\61";
+}
+.icon-icon-twitter-icon:before {
+  content: "\62";
+}
+.icon-icon-instagram-icon:before {
+  content: "\63";
+}
+.icon-icon-fb-icon:before {
+  content: "\64";
+}
+.icon-attachment:before {
+  content: "\65";
+}
+.icon-graphics-arrow-down:before {
+  content: "\66";
+}
+.icon-graphics-arrow-left:before {
+  content: "\67";
+}
+.icon-graphics-arrow-right:before {
+  content: "\68";
+}
+.icon-graphics-arrow-up:before {
+  content: "\69";
+}
+.icon-graphics-icon-arrow-up:before {
+  content: "\6a";
+}
+.icon-graphics-icon-arrow-right:before {
+  content: "\6b";
+}
+.icon-graphics-icon-arrow-left:before {
+  content: "\6c";
+}
+.icon-graphics-icon-arrow-down:before {
+  content: "\6d";
+}
+.icon-graphics-icon-mail:before {
+  content: "\6e";
+}
+.icon-graphics-icon-logout:before {
+  content: "\6f";
+}
+.icon-icon-arrow-right:before {
+  content: "\70";
+}
+.icon-graphics-icon-map:before {
+  content: "\71";
+}
+.icon-graphics-location:before {
+  content: "\72";
+}
+.icon-graphics-icon-phone:before {
+  content: "\73";
+}
+.icon-icon-download:before {
+  content: "\74";
+}
+.icon-icon-search-icon:before {
+  content: "\75";
+}
+.icon-graphics-icon-close:before {
+  content: "\76";
+}
+.icon-android-done:before {
+  content: "\77";
+}
+.icon-android-close:before {
+  content: "\78";
+}
+.icon-android-delete:before {
+  content: "\79";
+}
+.icon-android-alert:before {
+  content: "\7a";
+}
+.icon-information-circled:before {
+  content: "\41";
+}
+.icon-information:before {
+  content: "\42";
+}
+.icon-download:before {
+  content: "\43";
+}
+.icon-calendar:before {
+  content: "\44";
+}
+.icon-person:before {
+  content: "\45";
+}
+.icon-profile:before {
+  content: "\46";
+}
+.icon-icon-download-1:before {
+  content: "\47";
+}
+.icon-icon-view:before {
+  content: "\48";
+}
+.icon-icon-budget:before {
+  content: "\49";
+}

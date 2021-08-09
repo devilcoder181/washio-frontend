@@ -1,0 +1,17 @@
+{
+    "home":[  
+        "src/assets/scripts/vendor/blazy.js", 
+        "src/assets/scripts/vendor/jquery.viewportchecker.min.js",
+        "src/assets/scripts/vendor/swiper.js",
+        "src/assets/scripts/vendor/jquery.fancybox.js",    
+        "src/assets/scripts/vendor/materialize.min.js"
+    ],
+    "page":[         
+        "src/assets/scripts/vendor/blazy.js", 
+        "src/assets/scripts/vendor/jquery.viewportchecker.min.js",                     
+        "src/assets/scripts/vendor/swiper.js",       
+        "src/assets/scripts/vendor/jquery.fancybox.js",       
+        "src/assets/scripts/vendor/materialize.min.js"       
+    ]
+} 
+  

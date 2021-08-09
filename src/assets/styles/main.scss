@@ -1,0 +1,24 @@
+@charset "UTF-8";
+// Main
+@import "variables";
+@import "fonts";
+
+// Vendor
+@import "vendor/normalize"; 
+@import "vendor/swiper";
+@import "vendor/jquery.fancybox";
+
+
+// Globals
+@import "global";
+// Components
+@import "components/icon"; 
+@import "components/button"; 
+@import "components/common";
+
+// Layout
+@import "layout/header";
+@import "layout/home";
+@import "layout/footer";   
+
+
