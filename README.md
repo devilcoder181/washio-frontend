@@ -14,7 +14,7 @@ This is the front-end boilerplate that we use at
 Make sure you have [Yarn](https://yarnpkg.com/) installed.
 
 ```
-$ cd pgs-boilerplate
+$ cd washio-frontend-bundle
 $ yarn
 ```
 
