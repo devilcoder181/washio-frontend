@@ -3,12 +3,12 @@
         if($(window).width() > 767){
             $('.home-section').viewportChecker({
                 classToAdd: 'throw_anim',
-                offset: '50%'
+                offset: '20%'
             });
         }else{
             $('.home-section').viewportChecker({
                 classToAdd: 'throw_anim',
-                offset: '30%'
+                offset: '20%'
             });
         }
 

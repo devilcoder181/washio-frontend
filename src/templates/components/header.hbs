@@ -1,7 +1,12 @@
 <header id="header">
-  <div class="navbar ">
-    <div class="barnd_box left_"><a class="navbar-brand" href="index.html" title=""><img src="{{assets}}/images/logo.svg" alt=""></a></div>
-    <div class="hd_nav_box">
+  <div class="container">
+    <div class="navbar ">
+    <div class="barnd_box">
+        <a class="navbar-brand" href="index.html" title="Washio">
+        <img src="{{assets}}/images/logo.svg" alt="Washio">
+        </a>
+    </div>
+    {{!-- <div class="hd_nav_box">
       <ul>
         <li class="no_hide"><a class="mn_link " href="index_ar.html" title="" ><span>العربية</span></a></li>
         <li>
@@ -10,7 +15,7 @@
           </button> 
         </li>
         </ul>
-    </div>   
+    </div>    --}}
 
     <div class="nav_box_wrapper" id="master_menu">
       <nav class="navbar-inner">
@@ -19,13 +24,40 @@
             <a href="#" class="nav-link scroll" data-href="#home"  aria-title="" >Home</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link scroll" data-href="#about"  aria-title="" >About</a>
+            <a href="#" class="nav-link scroll" data-href="#about"  aria-title="" >About Us</a>
           </li>
+
           <li class="nav-item">
-            <a href="#" class="nav-link scroll" data-href="#contact"  aria-title="" >Contact</a>
+            <a href="#" class="nav-link scroll" data-href="#how"  aria-title="" >How It Works</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link scroll" data-href="#services"  aria-title="" >Services</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link scroll" data-href="#contact"  aria-title="" >Contact Us</a>
           </li>
         </ul>
       </nav>
     </div> 
+
+    <div class="res_toggler">
+       <button class="menu_trigger" data-traget="master_menu">
+           <svg class="ham hamRotate ham8" viewBox="0 0 100 100" width="60" >
+                    <path
+                          class="line top"
+                          d="m 30,33 h 40 c 3.722839,0 7.5,3.126468 7.5,8.578427 0,5.451959 -2.727029,8.421573 -7.5,8.421573 h -20" />
+                    <path
+                          class="line middle"
+                          d="m 30,50 h 40" />
+                    <path
+                          class="line bottom"
+                          d="m 70,67 h -40 c 0,0 -7.5,-0.802118 -7.5,-8.365747 0,-7.563629 7.5,-8.634253 7.5,-8.634253 h 20" />
+                  </svg>
+        </button> 
+    </div>
+
+  </div>
   </div>
 </header>

@@ -1,163 +1,68 @@
 footer {  
     color: $color-black;
     overflow: hidden;
-    background-color: #f2f2f2;
+    padding: 1.5em 0;
     z-index: 99;
     position: relative;
 
-    p {
-        margin: 0;
-        font-weight: 400;
-    }
-    .container-fluid {
-        padding-left: 2em;
-        padding-right: 2em;
-    }
-
-    .content_box {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-between;
-        padding-bottom: 1.5em;
-        border-bottom: 1px solid $line_gray_1;
-       
-    }
-
-    .inner {
+    .footer_wrapper{
+        position: relative;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        flex-wrap: wrap;
-        max-width: 90%;
-        margin: 0 auto;
-        padding: 2% 0;
-        font-size: 15px;
 
-        &.center {
-            justify-content: space-between;
+        @media only screen and (max-width:767px){
+            flex-direction: column;
         }
 
-        p {
-            font-size: .85rem;
-            flex: 1;
-            text-align: center;
-        }
-
-        .nave_link_box {
+        p{
+            position: relative;
+            display: block;
             margin: 0;
-            padding: 0;
-            list-style: none;
+            font-weight: 400;
+            @include smText();
+            line-height: 2;
+        }
+
+        ul{
+            position: relative;
             display: flex;
-            flex-wrap: wrap;
             align-items: center;
+            list-style: none;
+            padding: 0;
+            margin: 0 -1em;
 
-            li {
-                .link_ {
-                    padding: 0 1em;
-                    color: #000;
-                    font-weight: 400;
-                    font-size: .9rem;
+            li{
+                position: relative;
+                display: block;
+                padding: 0 1em;
 
-                    &:hover {
-                        color: $brand-color;
+                &:after{
+                    content: '|';
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    right: 0;
+                }
+
+                &:last-child{
+                    &:after{
+                        display: none;
                     }
                 }
-            }
-        }
 
-     
-    }
+                a{
+                    position: relative;
+                    display: block;
+                    @include smText();
+                    color: $brand-text;
+                    transition: all 0.3s ease;
+                    line-height: 2;
+                    font-weight: 400;
 
-    @media screen and (max-width: 1024px) {
-        .inner {
-            padding: 20px 0;
-            font-size: 13px;
-            
-        }
-    }
-
-    @media screen and (max-width: 767px) {
-        .inner {
-            p {
-                flex: inherit;
-                width: 100%;
-                text-align: center;
-            }
-        }
-        .left,
-        .right {
-            width: 100%;
-            text-align: center;
-            margin: 10px 0;
-        }
-    }
-}
-
-html[dir=rtl] {
-    footer {
-        .inner  {
-            p {
-                font-weight: 300;
-            }
-        }
-    }
-}
-
-.error-page {
-    .footer_bg {
-        display: none;
-    }
-
-    .fl-social {
-        display: none;
-    }
-}
-
-
-@media screen and (max-width: 767px) {
-    footer {
-        padding-top: .8em;
-
-        .container-fluid {
-            padding-left: 1em;
-            padding-right: 1em;
-        }
-
-        .content_box {
-            padding-bottom: 0;
-
-            .nave_link_box {
-                justify-content: space-between;
-                width: 100%;
-            }
-
-            .newsletter_wrpper {
-                border: none;
-                padding-left: 0;
-                max-width: 275px;
-                margin: .5em auto 0;
-            }
-        }
-
-        .inner {
-            &.center {
-                justify-content: center;
-            }
-        }
-    }
-
-    html[dir=rtl] {
-        footer {
-            .content_box {
-                .newsletter_wrpper {
-                    padding-right: 0;
-                    border: none;
-                }
-            }
-            .inner  {
-                p {
-                    text-align: center;
+                    &:hover{
+                        color: $brand-color-2;
+                    }
                 }
             }
         }

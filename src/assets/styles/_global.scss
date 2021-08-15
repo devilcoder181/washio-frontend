@@ -15,7 +15,7 @@ html {
 
 body {
     font-family: $ff-primary;
-    color: $color-black;
+    color: $brand-text;
     font-size: 17px;
     font-size: 100%;
     font-weight: 300;
@@ -62,7 +62,7 @@ a {
 
     @media screen and (min-width:1024px) {
         width: 100%;
-        max-width: 80%;
+        max-width: 87.5%;
     }
 
     @media screen and (max-width:1024px) {
@@ -70,7 +70,7 @@ a {
     }
 
     @media screen and (max-width:767px) {
-        max-width: 95%;
+        max-width: 100%;
     }
 }
 

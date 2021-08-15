@@ -1,52 +1,160 @@
-<!-- Styles -->
-<noscript id="deferred-styles">
-    {{#isRTL "rtl"}}
-    <link rel="stylesheet" type="text/css" href="{{assets}}/styles/{{style}}.css">
-    <link rel="stylesheet" type="text/css" href="{{assets}}/styles/{{style}}-rtl.css">
-    {{else}}
-    <link rel="stylesheet" type="text/css" href="{{assets}}/styles/{{style}}.css">
-    {{/isRTL}}
-</noscript>
-<script>
-    var loadDeferredStyles = function () {
-        var addStylesNode = document.getElementById("deferred-styles");
-        var replacement = document.createElement("div");
-        replacement.innerHTML = addStylesNode.textContent;
-        document.body.appendChild(replacement)
-        addStylesNode.parentElement.removeChild(addStylesNode);
-    };
-    var raf = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
-        window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
-    if (raf) raf(function () { window.setTimeout(loadDeferredStyles, 0); });
-    else window.addEventListener('load', loadDeferredStyles);
-</script>
-<!-- Scripts -->
-<script>
-    var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-    if (window.document.documentMode || isSafari) {
-        var blz_elemt = document.getElementsByClassName('b-lazy');
-        for (var i = 0; i < blz_elemt.length; ++i) {
-            var src_ = blz_elemt[i].dataset,
-                src_data = JSON.parse(JSON.stringify(src_));
-            for (var key in src_data) {
-                var file_path = src_data[key];
-                if (file_path.split('.').pop() == 'webp') {
-                    new_file = file_path.substr(0, file_path.lastIndexOf(".")) + ".jpg";
-                    blz_elemt[i].dataset[key] = new_file;
-                }
-            }
-        }
-    }
-</script>
 <script src="{{assets}}/scripts/lib/modernizr-3.6.0.js"></script>
 <script src="{{assets}}/scripts/lib/jquery-3.5.1.min.js"></script>
 <script src="{{assets}}/scripts/min/home_plugins.js"></script>
 <script src="{{assets}}/scripts/min/home.js"></script>
-<script src="https://www.google.com/recaptcha/api.js?onload=CaptchaCallback&render=explicit&hl=en" async defer></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.4.0/mapbox-gl.js'></script>
 <script>
-    function CaptchaCallback() { $('.recaptcha').each(function () { grecaptcha.render(this, { 'sitekey': '6LduzggUAAAAAEFpHflbMn2MhApiYPpvvEmaqp4D', 'lang': 'en' }); }); };
-    $(document).ready(function () {
-        //$('select').formSelect();     
-        $('select').selectric({ disableOnMobile: false, nativeOnMobile: false });
+  $(function () {
+    var testSwiper = new Swiper(".home-banner .swiper-container", {
+      slidesPerView: 1,
+      spaceBetween: 50,
+      speed: 600,
+      pagination: {
+          el: ".home-banner .swiper-pagination",
+            clickable:true,
+        },
+      
+      on: {
+        init: function () {
+          window.bLazy.revalidate();
+        },
+        slideChange: function () {
+          window.bLazy.revalidate();
+        }
+      },
     });
+
+    var testSwiper = new Swiper(".service_wrapper .swiper-container", {
+      slidesPerView: 3,
+      spaceBetween: 50,
+      speed: 600,
+      breakpoints: {
+          640: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 1,
+            spaceBetween: 40,
+          },
+          1024: {
+            slidesPerView: 2,
+            spaceBetween: 50,
+          },
+        },
+      pagination: {
+          el: ".service_wrapper .swiper-pagination",
+            clickable:true,
+        },
+      on: {
+        init: function () {
+          window.bLazy.revalidate();
+        },
+        slideChange: function () {
+          window.bLazy.revalidate();
+        }
+      },
+    });
+
+    var mapPopup = (address, phone, email)=> {
+      return `
+        <ul>
+          <li>
+            <div class="icon_">
+              <svg xmlns="http://www.w3.org/2000/svg" width="41" height="41" fill="none" viewBox="0 0 41 41">
+                <circle cx="20.5" cy="20.5" r="20.5" fill="#fff"/>
+                <g clip-path="url(#clip0)">
+                  <path fill="#1E4694" d="M29.209 24.724a.615.615 0 10-.593 1.078c.733.403 1.154.849 1.154 1.225 0 .459-.651 1.171-2.478 1.792-1.805.613-4.217.95-6.792.95s-4.987-.337-6.792-.95c-1.827-.62-2.478-1.333-2.478-1.792 0-.376.42-.822 1.154-1.225a.615.615 0 10-.593-1.078c-.817.448-1.791 1.212-1.791 2.303 0 .835.575 2.027 3.313 2.957C15.242 30.639 17.794 31 20.5 31c2.706 0 5.258-.36 7.188-1.016 2.737-.93 3.312-2.122 3.312-2.957 0-1.09-.974-1.855-1.791-2.303z"/>
+                  <path fill="#1E4694" d="M15.855 27.929c1.249.353 2.898.547 4.645.547 1.746 0 3.396-.194 4.645-.547 1.528-.432 2.303-1.057 2.303-1.857s-.775-1.425-2.303-1.857c-.34-.096-.708-.18-1.1-.252-.214.368-.437.747-.67 1.137.434.065.842.145 1.212.24 1.124.285 1.535.608 1.62.732-.085.124-.496.446-1.62.733-1.064.27-2.434.425-3.876.44a2.843 2.843 0 01-.422 0c-1.443-.015-2.812-.17-3.876-.44-1.125-.287-1.535-.61-1.62-.733.085-.124.495-.447 1.62-.733.37-.094.778-.174 1.212-.24-.234-.389-.457-.768-.67-1.136-.392.072-.76.156-1.1.252-1.528.431-2.303 1.056-2.303 1.857 0 .8.775 1.425 2.303 1.857z"/>
+                  <path fill="#1E4694" d="M20.5 26.022a1.55 1.55 0 001.33-.746c2.003-3.276 4.39-7.593 4.39-9.557A5.726 5.726 0 0020.5 10a5.726 5.726 0 00-5.72 5.72c0 1.963 2.387 6.28 4.39 9.556a1.55 1.55 0 001.33.746zm-2.299-10.695a2.301 2.301 0 012.299-2.3 2.301 2.301 0 012.299 2.3 2.301 2.301 0 01-2.299 2.298 2.301 2.301 0 01-2.299-2.299z"/>
+                </g>
+                <defs>
+                  <clipPath id="clip0">
+                    <path fill="#fff" d="M0 0h21v21H0z" transform="translate(10 10)"/>
+                  </clipPath>
+                </defs>
+              </svg>
+            </div>
+            <label>${address}</label>
+          </li>
+
+          <li>
+            <div class="icon_">
+              <svg xmlns="http://www.w3.org/2000/svg" width="41" height="41" fill="none" viewBox="0 0 41 41">
+              <circle cx="20.5" cy="20.5" r="20.5" fill="#fff"/>
+              <g clip-path="url(#clip0)">
+                <path fill="#1E4694" d="M24.962 23.27c-.56-.554-1.259-.554-1.816 0-.424.42-.849.841-1.266 1.27-.114.117-.21.142-.35.064-.274-.15-.567-.272-.831-.436-1.231-.774-2.262-1.77-3.176-2.89-.453-.556-.856-1.152-1.138-1.823-.057-.135-.046-.224.065-.335.424-.41.838-.832 1.256-1.253.581-.585.581-1.27-.004-1.858-.332-.336-.664-.664-.996-1-.342-.342-.68-.688-1.027-1.027-.56-.546-1.26-.546-1.816.004-.428.42-.838.852-1.274 1.266-.403.382-.606.85-.65 1.395-.067.889.15 1.727.458 2.544.627 1.691 1.584 3.193 2.743 4.57a16.978 16.978 0 005.623 4.4c.985.478 2.005.845 3.115.906.763.043 1.427-.15 1.959-.746.363-.407.774-.778 1.16-1.166.57-.578.573-1.278.006-1.849-.678-.681-1.36-1.359-2.04-2.037zM24.281 20.425l1.317-.224a5.883 5.883 0 00-1.645-3.176 5.851 5.851 0 00-3.354-1.673l-.185 1.324a4.54 4.54 0 012.597 1.295 4.54 4.54 0 011.27 2.454zM26.34 14.703a9.708 9.708 0 00-5.566-2.776l-.186 1.324a8.418 8.418 0 014.81 2.398 8.41 8.41 0 012.358 4.548l1.317-.224a9.778 9.778 0 00-2.733-5.27z"/>
+              </g>
+              <defs>
+                <clipPath id="clip0">
+                  <path fill="#fff" d="M0 0h17.145v17.145H0z" transform="translate(11.927 11.927)"/>
+                </clipPath>
+              </defs>
+            </svg>
+            </div>
+            <label>${phone}</label>
+          </li>
+
+          <li>
+            <div class="icon_">
+              <svg xmlns="http://www.w3.org/2000/svg" width="41" height="41" fill="none" viewBox="0 0 41 41">
+                <circle cx="20.5" cy="20.5" r="20.5" fill="#fff"/>
+                <g clip-path="url(#clip0)">
+                  <path fill="#1E4694" d="M20.873 11.182c-4.933 0-8.946 4.013-8.946 8.945 0 4.933 4.013 8.946 8.946 8.946 1.573 0 3.12-.414 4.473-1.198l-1.119-1.936a6.705 6.705 0 01-3.354.897c-3.7 0-6.71-3.01-6.71-6.709 0-3.7 3.01-6.709 6.71-6.709s6.709 3.01 6.709 6.71v.973c0 .732-.47 1.262-1.118 1.262a1.12 1.12 0 01-1.119-1.118v-4.473H23.8a4.435 4.435 0 00-2.927-1.118 4.478 4.478 0 00-4.473 4.473 4.478 4.478 0 004.473 4.473 4.444 4.444 0 003.035-1.208 3.334 3.334 0 002.556 1.208c1.88 0 3.354-1.537 3.354-3.499v-.974c0-4.932-4.013-8.945-8.945-8.945zm0 11.181a2.239 2.239 0 01-2.237-2.236 2.239 2.239 0 012.237-2.236 2.239 2.239 0 012.236 2.236 2.239 2.239 0 01-2.236 2.236z"/>
+                </g>
+                <defs>
+                  <clipPath id="clip0">
+                    <path fill="#fff" d="M0 0h17.891v17.891H0z" transform="translate(11.927 11.182)"/>
+                  </clipPath>
+                </defs>
+              </svg>
+            </div>
+            <label>${email}</label>
+          </li>
+        </ul>
+      `
+    }
+
+    mapboxgl.accessToken = 'pk.eyJ1IjoiYWxhbnNoYXNhbGltIiwiYSI6ImNrcjB6MXQ4ZjAyaHQzMXB0enVmZml5cXgifQ.x4Zbac3MleCpIhW_Qgf24A';
+        const map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/alanshasalim/ckr0z3hc80c6m17nuiby5vl0s', // style URL
+        center: [54.3824169, 24.4311961], // starting position [lng, lat]
+        zoom: 11,
+        dragPan:true,
+        scrollZoom:false // starting zoom
+        });
+
+         // create a HTML element for each feature
+        var el = document.createElement('div');
+        var fl = document.createElement('div');
+        var gl = document.createElement('div');
+        el.className = 'map_marker';
+        fl.className = 'map_marker';
+        gl.className = 'map_marker';
+
+        const marker1 = new mapboxgl.Marker(el)
+        .setLngLat([54.595432, 24.370159])
+        .setPopup(new mapboxgl.Popup({ offset: 25 })
+        .setHTML(mapPopup('Shabiya 9, Abu Dhabi', '+971 525 123 456', 'info@washio.com')))
+        .addTo(map);
+        //.togglePopup();
+        
+        const marker2 = new mapboxgl.Marker(fl)
+        .setLngLat([54.5278831, 24.4536572])
+        .setPopup(new mapboxgl.Popup({ offset: 25 })
+        .setHTML(mapPopup('Damac Oceanscape, Reem Island', '+971 525 123 456', 'info@washio.com')))
+        .addTo(map)
+
+        const marker3 = new mapboxgl.Marker(gl)
+        .setLngLat([54.3938953, 24.397509])
+        .setPopup(new mapboxgl.Popup({ offset: 25 })
+        .setHTML(mapPopup('Wateredge, Reem Island', '+971 525 123 456', 'info@washio.com')))
+        .addTo(map);
+
+  });
+
+
+
+
 </script>

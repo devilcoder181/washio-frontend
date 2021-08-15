@@ -6,7 +6,7 @@ $brand-color-2: #4acdba;
 $brand-bg: #c49a6c;
 $brand-bg-1: #f1f0d1;
 $brand-bg-2: #f1f2f9;
-$brand-text: #555555;
+$brand-text: #2D3648;
 
 // Colors
 $brand_gray : #a0a0a0;
@@ -19,6 +19,8 @@ $brand_teal : #b0e0e1;
 
 $border-color : #dde0e0;
 $line_gray_1 : #e8e8e8;
+
+$ease: cubic-bezier(.33,1,.68,1);
 
 
 $bg_white : #fff;
@@ -318,3 +320,32 @@ $collection-line-height: 1.5rem !default;
 // 24. Progress Bar
 $progress-bar-color: $brand-color-2;
 
+// Mixing
+
+@mixin animate {
+  transform: none;
+  opacity: 1;
+}
+@mixin commonText {
+  font-size: 1.5vw;
+
+  @media only screen and (min-width:768px) and (max-width:1200px){
+    font-size: 2.25vw;
+  }
+
+  @media only screen and (max-width:767px){
+    font-size: 4.5vw;
+  }
+}
+
+@mixin smText {
+  font-size: 1.25vw;
+
+  @media only screen and (min-width:768px) and (max-width:1200px){
+    font-size: 2vw;
+  }
+
+  @media only screen and (max-width:767px){
+    font-size: 4vw;
+  }
+}

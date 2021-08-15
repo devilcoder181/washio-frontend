@@ -63,3 +63,76 @@
         background-position: 125% 0;
     }
 }
+.fancybox-close-small{
+  background-color: $brand-color;
+  opacity: 1;
+
+  svg{
+    path{
+      fill: $color-white;
+    }
+  }
+  &:hover{
+    background-color: darken($brand-color, 10%);
+  }
+}
+.d_popup{
+  min-width: 60%;
+  max-width: 60%;
+  padding: 0;
+  background-color: $color-white;
+  background-image: url('../images/bg_pattern_color.svg');
+  background-position: center;
+  background-size: cover;
+  display: none;
+
+  @media only screen and (min-width:768px) and (max-width:1200px){
+    min-width: 75%;
+    max-width: 75%;
+  }
+
+  @media only screen and (max-width:767px){
+    min-width: 95%;
+    max-width: 95%;
+  }
+
+  .d_p_inner{
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 5vw;
+
+    @media only screen and (max-width:767px){
+      fpadding: 7.5vw;
+    }
+
+    .text_{
+      position: relative;
+      display: block;
+
+      h2{
+        display: block;
+        position: relative;
+        margin: 0;
+        line-height: 2;
+        font-size: 2.5vw;
+
+        @media only screen and (min-width:768px) and (max-width:1200px){
+          font-size: 4vw;
+        }
+
+        @media only screen and (max-width:767px){
+          font-size: 6.5vw;
+        }
+      }
+
+      p{
+        position: relative;
+        display: block;
+        line-height: 1.8;
+        @include smText();
+        margin-bottom: 0;
+      }
+    }
+  }
+}
