@@ -1,42 +1,4 @@
-<!-- Styles -->
-<noscript id="deferred-styles">
-    {{#isRTL "rtl"}}
-    <link rel="stylesheet" type="text/css" href="{{assets}}/styles/{{style}}-rtl.css">
-    {{else}}
-    {{/isRTL}}
-</noscript>
-<script>
-    var loadDeferredStyles = function () {
-        var addStylesNode = document.getElementById("deferred-styles");
-        var replacement = document.createElement("div");
-        replacement.innerHTML = addStylesNode.textContent;
-        document.body.appendChild(replacement)
-        addStylesNode.parentElement.removeChild(addStylesNode);
-    };
-    var raf = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
-        window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
-    if (raf) raf(function () { window.setTimeout(loadDeferredStyles, 0); });
-    else window.addEventListener('load', loadDeferredStyles);
-</script>
-<!-- Styles -->
-<!-- Scripts -->
-<script>
-    var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-    if (window.document.documentMode || isSafari) {
-        var blz_elemt = document.getElementsByClassName('b-lazy');
-        for (var i = 0; i < blz_elemt.length; ++i) {
-            var src_ = blz_elemt[i].dataset,
-                src_data = JSON.parse(JSON.stringify(src_));
-            for (var key in src_data) {
-                var file_path = src_data[key];
-                if (file_path.split('.').pop() == 'webp') {
-                    new_file = file_path.substr(0, file_path.lastIndexOf(".")) + ".jpg";
-                    blz_elemt[i].dataset[key] = new_file;
-                }
-            }
-        }
-    }
-</script>
+
 <script src="{{assets}}/scripts/lib/modernizr-3.6.0.js"></script>
 <script src="{{assets}}/scripts/lib/jquery-3.5.1.min.js"></script>
 <script src="{{assets}}/scripts/min/page_plugins.js"></script>

@@ -90,25 +90,37 @@ video::-webkit-media-controls-volume-slider {
     }
 
     .parallax1 > use {
+      @media only screen and (min-width:768px){
       animation: move-forever1 10s linear infinite;
+
+      }
       &:nth-child(1) {
         animation-delay: -2s;
       }
     }
     .parallax2 > use {
+      @media only screen and (min-width:768px){
       animation: move-forever2 8s linear infinite;
+        
+      }
       &:nth-child(1) {
         animation-delay: -2s;
       }
     }
     .parallax3 > use {
+      @media only screen and (min-width:768px){
       animation: move-forever3 6s linear infinite;
+        
+      }
       &:nth-child(1) {
         animation-delay: -2s;
       }
     }
     .parallax4 > use {
+      @media only screen and (min-width:768px){
       animation: move-forever4 4s linear infinite;
+        
+      }
       &:nth-child(1) {
         animation-delay: -2s;
       }
@@ -897,7 +909,9 @@ video::-webkit-media-controls-volume-slider {
         bottom: 0;
         left: 0;
 
-        
+        @media only screen and (max-width:767px){
+         overflow: hidden;
+        }
 
         svg{
           display: block;

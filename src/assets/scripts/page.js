@@ -3,10 +3,11 @@
     $(document).ready(function(){        
         
         $('.page-section').viewportChecker({
-            classToAdd: 'inView',          
+            classToAdd: 'throw_anim',          
         });
     
-        $('body').addClass('is-loaded');
+        
+        $('body').addClass('dom-loaded');
     
     });
   

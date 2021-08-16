@@ -65,7 +65,7 @@ var viewport = window.innerWidth, custom_plugin = {
 !function($) {
     $(document).ready(function() {
         $(".page-section").viewportChecker({
-            classToAdd: "inView"
-        }), $("body").addClass("is-loaded");
+            classToAdd: "throw_anim"
+        }), $("body").addClass("dom-loaded");
     });
 }(jQuery);
